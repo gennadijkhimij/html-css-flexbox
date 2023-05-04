@@ -20,10 +20,37 @@
   .gallery {
     display: flex;
     flex-direction: row;
+    /*Властивість flex-wrap визначає як поводяться ваші гнучкі елементи, якщо гнучкий контейнер замалий. Якщо встановити значення wrap, елементи зможуть переноситися до наступного рядка чи стовпця. https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap */
+    flex-wrap: wrap;
+    /*Властивість justify-content визначає як розміщені предмети всередині гнучкого контейнера на головній осі, впливаючи на їхнє положення та простір навколо них. https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content*/
+    justify-content: center;
+    /* Властивість align-items розміщує гнучкий вміст по поперечних осях. В цьому разі, ваш flex-direction встановлений на row, тож поперечні осі будуть вертикальні. https://developer.mozilla.org/en-US/docs/Web/CSS/align-items*/
+    align-items: center;
+    /* встановлює область заповнення на всіх чотирьох сторонах елемента одночасно https://developer.mozilla.org/en-US/docs/Web/CSS/padding */
+    padding: 20px 10px;
+    /* встановлює максимальну ширину елемента. Це запобігає перевищенню використаного значення властивості, ніж значення, визначене .max-width https://developer.mozilla.org/en-US/docs/Web/CSS/max-width */
+    max-width: 1400px;
+    /* Скорочена властивість CSS встановлює область полів на всіх чотирьох сторонах елемента.margin  https://developer.mozilla.org/en-US/docs/Web/CSS/margin */
+    margin: 0 auto;
+    /* встановлює проміжки ( жолоби ) між рядками та стовпцями. Це скорочення для і .gap https://developer.mozilla.org/en-US/docs/Web/CSS/gap */
+    gap: 16px;
   }
   
   .gallery img {
     width: 100%;
     max-width: 350px;
     height: 300px;
+    /* визначає спосіб змінення розміру вмісту заміненого елемента , наприклад або , відповідно до його контейнера.object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit */
+    object-fit:cover;
+    /* заокруглює кути зовнішньої рамки елемента .border-radius https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius */
+    border-radius: 10px;
+
+  }
+
+  /*
+  ::afterстворює псевдоелемент , який є останнім дочірнім елементом вибраного елемента. Його часто використовують для додавання косметичного вмісту щоб додати порожній елемент після останнього зображення до елемента з властивістю content
+  Якщо ви надасте йому такий самий width, що має зображення, останнє зображення буде переміщено ліворуч, коли галерея матиме макет з двома стовпцями. https://developer.mozilla.org/en-US/docs/Web/CSS/::after */
+  .gallery::after {
+    content: "";
+    width: 350px;
   }
